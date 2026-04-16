@@ -144,3 +144,62 @@ const loadingInterval = setInterval(() => {
           }, 3000);
   });
 });
+
+// ===============================
+// CERTIFICATE SLIDER
+// ===============================
+
+let index = 0;
+
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+
+function showSlide() {
+  if (slider) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+}
+
+function nextSlide() {
+  index = (index + 1) % totalSlides;
+  showSlide();
+}
+
+function prevSlide() {
+  index = (index - 1 + totalSlides) % totalSlides;
+  showSlide();
+}
+
+// ===============================
+// POPUP VIEW
+// ===============================
+
+function openPopup(src) {
+  const popup = document.getElementById("popup");
+  const popupImg = document.getElementById("popupImg");
+
+  if (popup && popupImg) {
+    popup.style.display = "flex";
+    popupImg.src = src;
+  }
+}
+
+function closePopup() {
+  const popup = document.getElementById("popup");
+  if (popup) {
+    popup.style.display = "none";
+  }
+}
+
+// ===============================
+// OPTIONAL: AUTO SLIDE (BONUS 🔥)
+// ===============================
+
+// Uncomment karna ho to use karo
+
+/*
+setInterval(() => {
+  nextSlide();
+}, 3000);
+*/
